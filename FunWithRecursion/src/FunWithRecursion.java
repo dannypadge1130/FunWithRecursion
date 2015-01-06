@@ -1,8 +1,7 @@
-
-
 public class FunWithRecursion {
 
 	public int[] bitArray;
+	public char[] kArray;
 	
 	public static void main(String[] args) {
 		FunWithRecursion rc = new FunWithRecursion();
@@ -26,8 +25,14 @@ public class FunWithRecursion {
 		//rc.generateBinary(4);
 		
 		//System.out.println(rc.gcd(10, 45));
-		rc.pascals(9);
+		//rc.pascals(9);
 		
+		
+		String word = "ab";
+		for(int i = 0; i<word.length(); i++) {
+			rc.printAllStrings(word, 1);
+			word = rc.shiftToRight(word);
+		}
 	}
 	
 	//factorial recursion
@@ -130,4 +135,27 @@ public class FunWithRecursion {
 			binary(n - 1);
 		}
 	}
+	
+    public void printAllStrings(String word, int end) {
+        if(end > word.length()) {
+        	return;
+        } else {
+        	System.out.println(word.substring(0, end));
+        	printAllStrings(word, end+1);
+        }
+    }
+    
+    public String shiftToRight(String word) {
+    	
+    	char[] array = word.toCharArray();
+    	char last = array[word.length()-1];
+    	
+    	for(int i = 0; i < word.length()-1; i++) {
+    		array[i+1] = word.charAt(i);
+    	}
+    	array[0] = last;
+    	
+    	return String.valueOf(array);
+    }
+
 }
