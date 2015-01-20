@@ -27,8 +27,7 @@ public class FunWithRecursion {
 		//System.out.println(rc.gcd(10, 45));
 		//rc.pascals(9);
 		
-		
-		String word = "ab";
+		String word = "abba";
 		for(int i = 0; i<word.length(); i++) {
 			rc.printAllStrings(word, 1);
 			word = rc.shiftToRight(word);
